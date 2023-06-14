@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_camera_overlay/model.dart';
 import 'package:flutter_camera_overlay/overlay_shape.dart';
+export 'package:camera/camera.dart';
 
 typedef XFileCallback = void Function(XFile file);
 

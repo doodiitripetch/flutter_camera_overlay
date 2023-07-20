@@ -14,15 +14,19 @@ class CameraOverlay extends StatefulWidget {
     this.onCapture, {
     Key? key,
     this.flash = false,
+    this.enableAudio = false,
     this.enableCaptureButton = true,
     this.label,
     this.info,
     this.loadingWidget,
     this.infoMargin,
+    this.resolution = ResolutionPreset.max,
   }) : super(key: key);
   final CameraDescription camera;
+  final ResolutionPreset resolution;
   final OverlayModel model;
   final bool flash;
+  final bool enableAudio;
   final bool enableCaptureButton;
   final XFileCallback onCapture;
   final String? label;
@@ -42,7 +46,8 @@ class _FlutterCameraOverlayState extends State<CameraOverlay> {
   @override
   void initState() {
     super.initState();
-    controller = CameraController(widget.camera, ResolutionPreset.max);
+    controller = CameraController(widget.camera, widget.resolution,
+        enableAudio: widget.enableAudio);
     controller.initialize().then((_) {
       if (!mounted) {
         return;

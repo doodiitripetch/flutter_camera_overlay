@@ -7,3 +7,5 @@
 /lib/main.dart
 /web/
 /flutter_camera_overlay.iml
+# Ignore flutter generated files
+.flutter*
